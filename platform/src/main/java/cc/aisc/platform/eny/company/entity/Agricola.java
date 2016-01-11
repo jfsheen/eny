@@ -1,11 +1,12 @@
 package cc.aisc.platform.eny.company.entity;
 
 import cc.aisc.platform.commons.base.BaseEntity;
-import cc.aisc.platform.commons.entity.Person;
+import cc.aisc.platform.commons.info.Person;
 import com.google.common.base.Objects;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by sjf on 15-11-3.
@@ -22,7 +23,7 @@ public class Agricola extends BaseEntity<Long> {
     private Person person;
 
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY, mappedBy = "owner")
-    private Set<Factory> factorySet;
+    private List<Department> departmentSet = new LinkedList<>();
 
     @Column(name="description")
     private String description;
@@ -32,7 +33,7 @@ public class Agricola extends BaseEntity<Long> {
         return "Agricola{" +
                 "agricolaSn='" + agricolaSn + '\'' +
                 ", person=" + person +
-                ", factorySet=" + factorySet +
+                ", factorySet=" + departmentSet +
                 ", description='" + description + '\'' +
                 '}';
     }
@@ -45,13 +46,13 @@ public class Agricola extends BaseEntity<Long> {
         Agricola agricola = (Agricola) o;
         return Objects.equal(agricolaSn, agricola.agricolaSn) &&
                 Objects.equal(person, agricola.person) &&
-                Objects.equal(factorySet, agricola.factorySet) &&
+                Objects.equal(departmentSet, agricola.departmentSet) &&
                 Objects.equal(description, agricola.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(super.hashCode(), agricolaSn, person, factorySet, description);
+        return Objects.hashCode(super.hashCode(), agricolaSn, person, departmentSet, description);
     }
 
     public String getAgricolaSn() {
@@ -71,12 +72,12 @@ public class Agricola extends BaseEntity<Long> {
         this.person = person;
     }
 
-    public Set<Factory> getFactorySet() {
-        return factorySet;
+    public List<Department> getDepartmentSet() {
+        return departmentSet;
     }
 
-    public void setFactorySet(Set<Factory> factorySet) {
-        this.factorySet = factorySet;
+    public void setDepartmentSet(List<Department> departmentSet) {
+        this.departmentSet = departmentSet;
     }
 
     public String getDescription() {

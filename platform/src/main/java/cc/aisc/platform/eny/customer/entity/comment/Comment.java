@@ -6,6 +6,7 @@ import cc.aisc.platform.eny.customer.entity.Customer;
 import com.google.common.base.Objects;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -23,7 +24,7 @@ public class Comment extends BaseEntity<Long> {
     private String content;
 
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER,mappedBy = "comment")
-    private Set<CommentImage> commentImageSet;
+    private Set<CommentImage> commentImageSet = new HashSet<>();
 
     @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "deal_id")

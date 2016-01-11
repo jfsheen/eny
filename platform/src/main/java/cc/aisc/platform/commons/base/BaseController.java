@@ -1,6 +1,6 @@
 package cc.aisc.platform.commons.base;
 
-import cc.aisc.platform.commons.Constant;
+import cc.aisc.platform.constant.Constant;
 import cc.aisc.platform.utils.CookieUtils;
 import cc.aisc.platform.utils.StringUtils;
 import org.springframework.web.context.ContextLoader;

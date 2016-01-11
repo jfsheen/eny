@@ -1,5 +1,5 @@
 <#-- @ftlvariable name="_csrf" type="org.springframework.security.web.csrf.CsrfToken" -->
-<#-- @ftlvariable name="_r" type="cc.aisc.platform.eny.company.entity.Factory" -->
+<#-- @ftlvariable name="_r" type="cc.aisc.platform.eny.company.entity.Department" -->
 <#include "tmpl/tmp1.ftl" />
 <@htmlHead title="Create a new CATEGORY">
 </@htmlHead>

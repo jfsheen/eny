@@ -1,6 +1,6 @@
 package cc.aisc.platform.eny.company.service;
 
-import cc.aisc.platform.commons.entity.PersonDao;
+import cc.aisc.platform.commons.info.PersonDao;
 import cc.aisc.platform.eny.company.dao.AgricolaDao;
 import cc.aisc.platform.eny.company.entity.Agricola;
 import org.slf4j.Logger;

@@ -1,6 +1,6 @@
 package cc.aisc.platform.eny.company.dto;
 
-import cc.aisc.platform.commons.base.pojo.Gender;
+import cc.aisc.platform.commons.info.Gender;
 import com.google.common.base.Objects;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;

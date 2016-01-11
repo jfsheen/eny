@@ -6,10 +6,10 @@
 <@htmlBody projectName="ENY">
 <#--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
 <h1>List of Category</h1>
-<table class="table-bordered">
+<table class="table table-hover">
     <thead>
     <tr>
-        <th>ID</th>
+        <th>#</th>
         <th>NAME</th>
         <th>PARENTID</th>
         <th>LEVLE</th>

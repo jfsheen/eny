@@ -1,5 +1,5 @@
 <#-- @ftlvariable name="_csrf" type="org.springframework.security.web.csrf.CsrfToken" -->
-<#-- @ftlvariable name="currentUser" type="cc.aisc.platform.auth.currentuser.CurrentUser" -->
+<#-- @ftlvariable name="currentUser" type="cc.aisc.platform.commons.auth.currentuser.CurrentUser" -->
 <#include "tmpl/tmp1.ftl" />
 <@htmlHead title="HOME">
 </@htmlHead>

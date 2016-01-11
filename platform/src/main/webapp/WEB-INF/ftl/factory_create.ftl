@@ -1,6 +1,6 @@
 <#-- @ftlvariable name="_csrf" type="org.springframework.security.web.csrf.CsrfToken" -->
 <#-- @ftlvariable name="form" type="cc.aisc.platform.eny.company.dto.FactoryCreateForm" -->
-<#-- @ftlvariable name="jo" type="cc.aisc.platform.eny.company.entity.Factory" -->
+<#-- @ftlvariable name="jo" type="cc.aisc.platform.eny.company.entity.Department" -->
 <#include "tmpl/tmp1.ftl" />
 <@htmlHead title="Create a new CATEGORY">
 <script type="text/JavaScript">

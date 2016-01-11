@@ -1,7 +1,7 @@
 package cc.aisc.platform.eny.company.entity;
 
 import cc.aisc.platform.commons.base.BaseEntity;
-import cc.aisc.platform.commons.entity.Person;
+import cc.aisc.platform.commons.info.Person;
 import com.google.common.base.Objects;
 
 import javax.persistence.*;
@@ -11,8 +11,11 @@ import java.util.Date;
  * Created by sjf on 15-11-27.
  */
 @Entity
-@Table(name="t_company")
+@Table(name="t_cmpy")
 public class Company extends BaseEntity<Long> {
+
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "license_no")
     private String licenseNo;
@@ -47,7 +50,8 @@ public class Company extends BaseEntity<Long> {
     @Override
     public String toString() {
         return "Company{" +
-                "licenseNo='" + licenseNo + '\'' +
+                "name='" + name + '\'' +
+                ", licenseNo='" + licenseNo + '\'' +
                 ", legelPerson=" + legelPerson +
                 ", regCapital=" + regCapital +
                 ", paidupCapital=" + paidupCapital +
@@ -65,7 +69,8 @@ public class Company extends BaseEntity<Long> {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Company company = (Company) o;
-        return Objects.equal(licenseNo, company.licenseNo) &&
+        return Objects.equal(name, company.name) &&
+                Objects.equal(licenseNo, company.licenseNo) &&
                 Objects.equal(legelPerson, company.legelPerson) &&
                 Objects.equal(regCapital, company.regCapital) &&
                 Objects.equal(paidupCapital, company.paidupCapital) &&
@@ -78,7 +83,16 @@ public class Company extends BaseEntity<Long> {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(super.hashCode(), licenseNo, legelPerson, regCapital, paidupCapital, characterOfBiz, scopeOfOperation, dateFoundation, dateTermFrom, dateTermTo);
+        return Objects.hashCode(super.hashCode(), name, licenseNo, legelPerson, regCapital, paidupCapital, characterOfBiz, scopeOfOperation, dateFoundation, dateTermFrom, dateTermTo);
+    }
+
+    public String getName() {
+
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getLicenseNo() {

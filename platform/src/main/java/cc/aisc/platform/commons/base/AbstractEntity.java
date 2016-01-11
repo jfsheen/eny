@@ -12,7 +12,7 @@ public abstract class AbstractEntity<ID extends Serializable> implements Persist
 
     public abstract ID getId();
     /**
-     * Sets the id of the entity.
+     * Sets the id of the info.
      *
      * @param id the id to set
      */

@@ -21,7 +21,6 @@ public abstract class BaseImageEntity<ID extends Serializable> extends BaseEntit
     @Column(name = "label")
     private String label;
 
-
     @Column(name = "order_num")
     private String orderNum;
 

@@ -2,7 +2,7 @@ package cc.aisc.platform.eny.business.entity;
 
 import cc.aisc.platform.commons.base.BaseEntity;
 import cc.aisc.platform.eny.customer.entity.Customer;
-import cc.aisc.platform.eny.company.entity.Factory;
+import cc.aisc.platform.eny.company.entity.Department;
 import com.google.common.base.Objects;
 
 import javax.persistence.*;
@@ -25,7 +25,7 @@ public class Contract extends BaseEntity<Long> {
 
     @ManyToOne
     @JoinColumn(name = "seller")
-    private Factory factory;
+    private Department department;
 
     @Column(name="sign_date")
     @Temporal(TemporalType.DATE)
@@ -46,7 +46,7 @@ public class Contract extends BaseEntity<Long> {
         return "Contract{" +
                 "contractSn='" + contractSn + '\'' +
                 ", customer=" + customer +
-                ", factory=" + factory +
+                ", factory=" + department +
                 ", signDate=" + signDate +
                 ", deadline=" + deadline +
                 ", dealSet=" + dealSet +
@@ -61,7 +61,7 @@ public class Contract extends BaseEntity<Long> {
         Contract contract = (Contract) o;
         return Objects.equal(contractSn, contract.contractSn) &&
                 Objects.equal(customer, contract.customer) &&
-                Objects.equal(factory, contract.factory) &&
+                Objects.equal(department, contract.department) &&
                 Objects.equal(signDate, contract.signDate) &&
                 Objects.equal(deadline, contract.deadline) &&
                 Objects.equal(dealSet, contract.dealSet) &&
@@ -70,7 +70,7 @@ public class Contract extends BaseEntity<Long> {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(contractSn, customer, factory, signDate, deadline, dealSet, invoice);
+        return Objects.hashCode(contractSn, customer, department, signDate, deadline, dealSet, invoice);
     }
 
     public String getContractSn() {
@@ -90,12 +90,12 @@ public class Contract extends BaseEntity<Long> {
         this.customer = customer;
     }
 
-    public Factory getFactory() {
-        return factory;
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setFactory(Factory factory) {
-        this.factory = factory;
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
     public Date getSignDate() {

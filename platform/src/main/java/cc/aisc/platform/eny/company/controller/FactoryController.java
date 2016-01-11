@@ -1,8 +1,8 @@
 package cc.aisc.platform.eny.company.controller;
 
 import cc.aisc.platform.eny.company.dto.FactoryCreateForm;
-import cc.aisc.platform.eny.company.entity.Factory;
-import cc.aisc.platform.eny.company.service.FactoryService;
+import cc.aisc.platform.eny.company.entity.Department;
+import cc.aisc.platform.eny.company.service.DepartmentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +25,11 @@ import java.util.Optional;
 public class FactoryController {
     private static final Logger LOGGER = LoggerFactory.getLogger(FactoryController.class);
 
-    private final FactoryService factoryService;
+    private final DepartmentService departmentService;
 
     @Autowired
-    public FactoryController(FactoryService factoryService) {
-        this.factoryService = factoryService;
+    public FactoryController(DepartmentService departmentService) {
+        this.departmentService = departmentService;
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.GET)
@@ -61,7 +61,7 @@ public class FactoryController {
 
     @RequestMapping(value = "/list/{page}")
     public ModelAndView listCategories(@PathVariable Integer page){
-        Optional<Page<Factory>> rs = factoryService.findAll(page, 10);
+        Optional<Page<Department>> rs = departmentService.findAll(page, 10);
         return new ModelAndView("factory_list", "_rs", rs.get().getContent());
     }
 }

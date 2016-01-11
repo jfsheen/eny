@@ -3,6 +3,7 @@ package cc.aisc.platform.eny.product.entity;
 import cc.aisc.platform.commons.base.BaseTreeEntity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class Category extends BaseTreeEntity<Long>{
     private Category parent;
 
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER, mappedBy = "parent")
-    private List<Category> children = new LinkedList<>();
+    private List<Category> children = new ArrayList<>();
 
 
     public Category(Category parent) {

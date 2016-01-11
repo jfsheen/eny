@@ -1,6 +1,6 @@
 package cc.aisc.platform.eny.company.dto;
 
-import cc.aisc.platform.commons.entity.Address;
+import cc.aisc.platform.commons.info.Address;
 import com.google.common.base.Objects;
 import org.hibernate.validator.constraints.NotEmpty;
 

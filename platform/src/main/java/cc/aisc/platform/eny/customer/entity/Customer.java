@@ -1,9 +1,7 @@
 package cc.aisc.platform.eny.customer.entity;
 
 import cc.aisc.platform.commons.base.BaseEntity;
-import cc.aisc.platform.commons.entity.Address;
-import cc.aisc.platform.commons.entity.Contact;
-import cc.aisc.platform.commons.entity.Person;
+import cc.aisc.platform.commons.info.Person;
 import cc.aisc.platform.eny.business.entity.Contract;
 import com.google.common.base.Objects;
 
@@ -20,7 +18,7 @@ public class Customer extends BaseEntity<Long> {
     @Column(name = "customer_sn")
     private String customerSn;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "person_id")
     private Person person;
 

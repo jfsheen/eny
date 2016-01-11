@@ -1,9 +1,9 @@
 package cc.aisc.platform.eny.company.controller;
 
-import cc.aisc.platform.commons.entity.Contact;
-import cc.aisc.platform.commons.entity.ContactService;
-import cc.aisc.platform.commons.entity.ContactType;
-import cc.aisc.platform.commons.entity.Person;
+import cc.aisc.platform.commons.info.Contact;
+import cc.aisc.platform.commons.info.ContactService;
+import cc.aisc.platform.commons.info.ContactType;
+import cc.aisc.platform.commons.info.Person;
 import cc.aisc.platform.eny.company.dto.AgricolaCreateForm;
 import cc.aisc.platform.eny.company.entity.Agricola;
 import cc.aisc.platform.eny.company.service.AgricolaService;

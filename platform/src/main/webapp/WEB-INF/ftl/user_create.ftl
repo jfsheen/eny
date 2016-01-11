@@ -1,5 +1,5 @@
 <#-- @ftlvariable name="_csrf" type="org.springframework.security.web.csrf.CsrfToken" -->
-<#-- @ftlvariable name="form" type="cc.aisc.platform.auth.user.entity.UserCreateForm" -->
+<#-- @ftlvariable name="form" type="cc.aisc.platform.commons.auth.dto.UserCreateForm" -->
 <#include "tmpl/tmp1.ftl" />
 <@htmlHead title="Create a new user">
 </@htmlHead>
@@ -8,8 +8,8 @@
     <form role="form" name="form" action="" method="post">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <div>
-            <label for="email">Email address</label>
-            <input type="email" name="email" id="email" value="${form.email}" required autofocus/>
+            <label for="username">User name</label>
+            <input type="email" name="username" id="username" value="${form.username}" required autofocus/>
         </div>
         <div>
             <label for="password">Password</label>
@@ -22,8 +22,8 @@
         <div>
             <label for="role">Role</label>
             <select name="role" id="role" required>
-                <option <#if form.role == 'USER'>selected</#if>>USER</option>
-                <option <#if form.role == 'ADMIN'>selected</#if>>ADMIN</option>
+                <option <#if form.roleEnum == 'USER'>selected</#if>>USER</option>
+                <option <#if form.roleEnum == 'ADMIN'>selected</#if>>ADMIN</option>
             </select>
         </div>
         <button type="submit">Create</button>
