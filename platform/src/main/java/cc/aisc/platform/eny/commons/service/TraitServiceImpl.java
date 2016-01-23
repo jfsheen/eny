@@ -1,5 +1,6 @@
 package cc.aisc.platform.eny.commons.service;
 
+import cc.aisc.platform.commons.base.BaseService;
 import cc.aisc.platform.eny.commons.dao.TraitDao;
 import cc.aisc.platform.eny.commons.entity.Trait;
 import org.slf4j.Logger;
@@ -15,9 +16,7 @@ import java.util.Optional;
  */
 @Service
 @Transactional
-public class TraitServiceImpl implements TraitService {
-
-    private final static Logger LOGGER = LoggerFactory.getLogger(TraitServiceImpl.class);
+public class TraitServiceImpl extends BaseService implements TraitService {
 
     private final TraitDao traitDao;
 

@@ -5,14 +5,14 @@
 </@htmlHead>
 <@htmlBody projectName="ENY">
     <#if error.isPresent()>
-    <p>The email or password you have entered is invalid, try again.</p>
+    <p>The username or password you have entered is invalid, try again.</p>
     </#if>
-<p>You can use: demo@localhost / demo</p>
+<p>You can use: demo / demo</p>
 <form role="form" action="/login" method="post">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <div>
         <label for="username">USERNAME</label>
-        <input type="email" name="username" id="username" PLACEHOLDER="EMAIL ADDRESS" required autofocus/>
+        <input type="text" name="username" id="username" PLACEHOLDER="USER NAME" required autofocus/>
     </div>
     <div>
         <label for="password">Password</label>

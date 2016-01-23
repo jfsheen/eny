@@ -1,5 +1,6 @@
 package cc.aisc.platform.eny.commons.service;
 
+import cc.aisc.platform.commons.base.BaseService;
 import cc.aisc.platform.eny.commons.dao.ImageDao;
 import cc.aisc.platform.eny.commons.entity.Image;
 import org.slf4j.Logger;
@@ -15,8 +16,7 @@ import java.util.Optional;
  */
 @Service
 @Transactional
-public class ImageServiceImpl implements ImageService{
-    private final static Logger LOGGER = LoggerFactory.getLogger(ImageServiceImpl.class);
+public class ImageServiceImpl extends BaseService implements ImageService{
 
     private final ImageDao imageDao;
 

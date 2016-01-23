@@ -1,4 +1,4 @@
-<#-- @ftlvariable name="user" type="cc.aisc.platform.commons.auth.user.entity.User" -->
+<#-- @ftlvariable name="user" type="cc.aisc.platform.commons.auth.entity.User" -->
 <#include "tmpl/tmp1.ftl" />
 <@htmlHead title="User Details">
 </@htmlHead>

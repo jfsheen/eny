@@ -1,5 +1,6 @@
 package cc.aisc.platform.eny.company.service;
 
+import cc.aisc.platform.commons.base.BaseService;
 import cc.aisc.platform.commons.info.PersonDao;
 import cc.aisc.platform.eny.company.dao.AgricolaDao;
 import cc.aisc.platform.eny.company.entity.Agricola;
@@ -19,9 +20,7 @@ import java.util.Optional;
  */
 @Service
 @Transactional
-public class AgricolaServiceImpl implements AgricolaService {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(AgricolaServiceImpl.class);
+public class AgricolaServiceImpl extends BaseService implements AgricolaService {
 
     private final AgricolaDao agricolaDao;
 

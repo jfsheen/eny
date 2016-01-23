@@ -1,5 +1,6 @@
 package cc.aisc.platform.eny.commons.controller;
 
+import cc.aisc.platform.commons.base.BaseController;
 import cc.aisc.platform.constant.Constant;
 import cc.aisc.platform.eny.commons.dto.ImageAddDto;
 import cc.aisc.platform.eny.commons.dto.TraitAddDto;
@@ -23,8 +24,7 @@ import javax.validation.Valid;
  * Created by sjf on 15-11-19.
  */
 @RestController
-public class AjaxController {
-    private final static Logger LOGGER = LoggerFactory.getLogger(AjaxController.class);
+public class AjaxController extends BaseController {
 
     private final TraitService traitService;
     private final ImageService imageService;

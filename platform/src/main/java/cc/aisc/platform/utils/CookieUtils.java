@@ -4,6 +4,7 @@ package cc.aisc.platform.utils;
  * Created by ff on 5/23/14.
  */
 
+import cc.aisc.platform.commons.base.Loggable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,8 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author
  */
 
-public abstract class CookieUtils {
-    protected static final Logger LOGGER = LoggerFactory.getLogger(CookieUtils.class);
+public abstract class CookieUtils extends Loggable{
 
     /**
      * 得到Cookie的值, 不编码

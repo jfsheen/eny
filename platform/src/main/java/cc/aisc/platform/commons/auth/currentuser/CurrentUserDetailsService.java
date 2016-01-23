@@ -1,7 +1,7 @@
 package cc.aisc.platform.commons.auth.currentuser;
 
-import cc.aisc.platform.commons.auth.user.entity.User;
-import cc.aisc.platform.commons.auth.user.service.UserService;
+import cc.aisc.platform.commons.auth.entity.User;
+import cc.aisc.platform.commons.auth.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

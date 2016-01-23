@@ -1,5 +1,6 @@
 package cc.aisc.platform.eny.company.service;
 
+import cc.aisc.platform.commons.base.BaseService;
 import cc.aisc.platform.eny.company.dao.DepartmentDao;
 import cc.aisc.platform.eny.company.entity.Department;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import java.util.Optional;
  */
 @Service
 @Transactional
-public class DepartmentServiceImpl implements DepartmentService {
+public class DepartmentServiceImpl extends BaseService implements DepartmentService {
 
     @Autowired
     private DepartmentDao departmentDao;

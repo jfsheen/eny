@@ -1,4 +1,4 @@
-<#-- @ftlvariable name="_r" type="java.util.List<cc.aisc.platform.commons.auth.user.entity.User>" -->
+<#-- @ftlvariable name="_r" type="java.util.List<cc.aisc.platform.commons.auth.entity.User>" -->
 <#import "/spring.ftl" as spring>
 <#include "tmpl/tmp1.ftl" />
 <@htmlHead title="User Details">

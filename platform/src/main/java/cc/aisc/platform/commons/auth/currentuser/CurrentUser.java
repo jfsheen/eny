@@ -1,7 +1,6 @@
 package cc.aisc.platform.commons.auth.currentuser;
 
-import cc.aisc.platform.commons.auth.role.RoleEnum;
-import cc.aisc.platform.commons.auth.user.entity.User;
+import cc.aisc.platform.commons.auth.entity.User;
 import org.springframework.security.core.authority.AuthorityUtils;
 
 import java.util.Date;
@@ -14,9 +13,9 @@ public class CurrentUser extends org.springframework.security.core.userdetails.U
     private User user;
 
     public CurrentUser(User user) {
-        super(user.getEmail(), user.getPasswordHash(), user.getEnabled(),
+        super(user.getUsername(), user.getPassword1(), user.getEnabled(),
                 user.getDateExpired().after(new Date()), true, user.getNonLocked(),
-                AuthorityUtils.createAuthorityList(user.getRoleEnum().toString()));
+                AuthorityUtils.createAuthorityList(new CurrentUserAuth(user.getGroups(), user.getRoles()).getAuthoritiesArray()));
         this.user = user;
     }
 
@@ -28,8 +27,8 @@ public class CurrentUser extends org.springframework.security.core.userdetails.U
         return user.getId();
     }
 
-    public RoleEnum getRole() {
-        return user.getRoleEnum();
+    public Boolean hasAuthority(String auth){
+        return new CurrentUserAuth(user.getGroups(), user.getRoles()).listAuthorities().contains(auth);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package cc.aisc.platform.eny.company.service;
 
+import cc.aisc.platform.commons.base.BaseService;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -9,5 +10,5 @@ import javax.transaction.Transactional;
  */
 @Service
 @Transactional
-public class CompanyServiceImpl implements CompanyService {
+public class CompanyServiceImpl extends BaseService implements CompanyService {
 }

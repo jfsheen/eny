@@ -1,5 +1,6 @@
 package cc.aisc.platform.eny.company.controller;
 
+import cc.aisc.platform.commons.base.BaseController;
 import cc.aisc.platform.commons.info.Contact;
 import cc.aisc.platform.commons.info.ContactService;
 import cc.aisc.platform.commons.info.ContactType;
@@ -9,11 +10,10 @@ import cc.aisc.platform.eny.company.entity.Agricola;
 import cc.aisc.platform.eny.company.service.AgricolaService;
 import cc.aisc.platform.eny.product.validator.AgricolaCreateFormValidator;
 import cc.aisc.platform.utils.RandomUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
+import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,12 +25,9 @@ import java.util.Optional;
 /**
  * Created by sjf on 15-11-14.
  */
-@RestController
+@Controller
 @RequestMapping("/agricola")
-public class AgricolaController {
-
-    private static final  Logger LOGGER = LoggerFactory.getLogger(AgricolaController.class);
-
+public class AgricolaController extends BaseController{
 
     private final AgricolaService agricolaService;
     private final ContactService contactService;

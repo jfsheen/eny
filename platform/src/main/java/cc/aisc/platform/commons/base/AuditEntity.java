@@ -30,6 +30,13 @@ public class AuditEntity<ID extends Serializable> extends BaseEntity<ID> {
     @Column(name = "updated_by", length = 20)
     private String updatedBy;
 
+    /*private String lastVisitBy;
+    private Date lastVisitAt;
+    private String lastVisitIp;*/
+    @Column(name = "remarks")
+    private String remarks;
+
+
     @PrePersist
     public void beforePersist() {
         this.createdAt = new Date();
@@ -43,6 +50,14 @@ public class AuditEntity<ID extends Serializable> extends BaseEntity<ID> {
         this.updatedAt = new Date();
     }
 
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+
     @Override
     public String toString() {
         return "AuditEntity{" +
@@ -50,6 +65,7 @@ public class AuditEntity<ID extends Serializable> extends BaseEntity<ID> {
                 ", createdBy='" + createdBy + '\'' +
                 ", updatedAt=" + updatedAt +
                 ", updatedBy='" + updatedBy + '\'' +
+                ", remarks='" + remarks + '\'' +
                 '}';
     }
 
@@ -58,16 +74,17 @@ public class AuditEntity<ID extends Serializable> extends BaseEntity<ID> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        AuditEntity that = (AuditEntity) o;
+        AuditEntity<?> that = (AuditEntity<?>) o;
         return Objects.equal(createdAt, that.createdAt) &&
                 Objects.equal(createdBy, that.createdBy) &&
                 Objects.equal(updatedAt, that.updatedAt) &&
-                Objects.equal(updatedBy, that.updatedBy);
+                Objects.equal(updatedBy, that.updatedBy) &&
+                Objects.equal(remarks, that.remarks);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(super.hashCode(), createdAt, createdBy, updatedAt, updatedBy);
+        return Objects.hashCode(super.hashCode(), createdAt, createdBy, updatedAt, updatedBy, remarks);
     }
 
     public Date getCreatedAt() {

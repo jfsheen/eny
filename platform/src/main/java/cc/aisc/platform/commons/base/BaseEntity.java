@@ -41,6 +41,7 @@ public abstract class BaseEntity<ID extends Serializable> extends AbstractEntity
         this.version = version;
     }
 
+
     @Override
     public String toString() {
         return "BaseEntity{" +

@@ -1,18 +1,17 @@
 package cc.aisc.platform.eny.company.controller;
 
+import cc.aisc.platform.commons.base.BaseController;
 import cc.aisc.platform.eny.company.dto.FactoryCreateForm;
 import cc.aisc.platform.eny.company.entity.Department;
 import cc.aisc.platform.eny.company.service.DepartmentService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
+import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
@@ -20,11 +19,9 @@ import java.util.Optional;
 /**
  * Created by sjf on 15-11-26.
  */
-@RestController
+@Controller
 @RequestMapping("/factory")
-public class FactoryController {
-    private static final Logger LOGGER = LoggerFactory.getLogger(FactoryController.class);
-
+public class FactoryController extends BaseController {
     private final DepartmentService departmentService;
 
     @Autowired

@@ -1,6 +1,8 @@
 package cc.aisc.platform.eny.product.entity;
 
 import cc.aisc.platform.commons.base.BaseTreeEntity;
+import cc.aisc.platform.eny.product.service.CategoryService;
+import com.google.common.base.Objects;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -12,7 +14,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "t_pdct_categroy")
-public class Category extends BaseTreeEntity<Long>{
+public class Category extends BaseTreeEntity<Long, Category>{
 
     @Column(name="category_sn")
     private String categorySn;
@@ -23,30 +25,21 @@ public class Category extends BaseTreeEntity<Long>{
     @Column(name="description")
     private String description;
 
-    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "parent_id")
-    private Category parent;
-
-    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER, mappedBy = "parent")
-    private List<Category> children = new ArrayList<>();
 
 
     public Category(Category parent) {
-        super(parent.getLevel());
-        this.parent = parent;
+        super(parent.getLevel(), parent);
     }
 
     public Category() {
     }
 
-    /*@Override
+    @Override
     public String toString() {
         return "Category{" +
                 "categorySn='" + categorySn + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", parent=" + parent +
-                ", children=" + children +
                 '}';
     }
 
@@ -55,33 +48,15 @@ public class Category extends BaseTreeEntity<Long>{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        Category parent = (Category) o;
-        return Objects.equal(categorySn, parent.categorySn) &&
-                Objects.equal(name, parent.name) &&
-                Objects.equal(description, parent.description);
+        Category category = (Category) o;
+        return Objects.equal(categorySn, category.categorySn) &&
+                Objects.equal(name, category.name) &&
+                Objects.equal(description, category.description);
     }
 
     @Override
     public int hashCode() {
         return Objects.hashCode(super.hashCode(), categorySn, name, description);
-    }*/
-
-    public List<Category> getChildren() {
-
-        return children;
-    }
-
-    public void setChildren(List<Category> children) {
-        this.children = children;
-    }
-
-    public Category getParent() {
-
-        return parent;
-    }
-
-    public void setParent(Category parent) {
-        this.parent = parent;
     }
 
     public String getCategorySn() {

@@ -1,15 +1,15 @@
 <#-- @ftlvariable name="_csrf" type="org.springframework.security.web.csrf.CsrfToken" -->
-<#-- @ftlvariable name="form" type="cc.aisc.platform.commons.auth.dto.UserCreateForm" -->
+<#-- @ftlvariable name="form" type="cc.aisc.platform.commons.auth.dto.UserDto" -->
 <#include "tmpl/tmp1.ftl" />
 <@htmlHead title="Create a new user">
 </@htmlHead>
 <@htmlBody projectName="ENY">
     <h1>Create a new user</h1>
     <form role="form" name="form" action="" method="post">
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        <#--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
         <div>
             <label for="username">User name</label>
-            <input type="email" name="username" id="username" value="${form.username}" required autofocus/>
+            <input type="text" name="username" id="username" value="${form.username}" required autofocus/>
         </div>
         <div>
             <label for="password">Password</label>

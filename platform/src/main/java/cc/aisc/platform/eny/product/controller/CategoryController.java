@@ -1,5 +1,6 @@
 package cc.aisc.platform.eny.product.controller;
 
+import cc.aisc.platform.commons.base.BaseController;
 import cc.aisc.platform.eny.product.dto.CategoryCreateForm;
 import cc.aisc.platform.eny.product.entity.Category;
 import cc.aisc.platform.eny.product.service.CategoryService;
@@ -23,9 +24,7 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/category")
-public class CategoryController {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(CategoryController.class);
+public class CategoryController extends BaseController {
 
     private final CategoryService categoryService;
 
@@ -55,7 +54,7 @@ public class CategoryController {
                 c.getChildren().add(category);
                 category.setDescription(form.getDescription());
                 category.setName(form.getName());
-                categoryService.add(category);
+                categoryService.save(category);
             }
         } catch (DataIntegrityViolationException e) {
             // probably email already exists - very rare case when multiple admins are adding same user

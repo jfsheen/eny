@@ -3,6 +3,7 @@ package cc.aisc.platform.utils;
 import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.io.UnsupportedEncodingException;
 import java.security.SecureRandom;
@@ -447,6 +448,10 @@ public abstract class StringUtils extends org.apache.commons.lang3.StringUtils{
         } catch (Exception e) {
         }
         return null;
+    }
+
+    public final static String BCryptEncrypt(String str){
+        return new BCryptPasswordEncoder().encode(str);
     }
     /**
      * 密码加密

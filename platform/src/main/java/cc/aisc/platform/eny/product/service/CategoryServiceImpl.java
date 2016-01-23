@@ -27,7 +27,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     @CachePut(value = ENY_CACHE)
-    public Category add(Category category) {
+    public Category save(Category category) {
         return categoryDao.save(category);
     }
 

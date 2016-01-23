@@ -1,6 +1,6 @@
 package cc.aisc.platform.system.config;
 
-import cc.aisc.platform.commons.auth.support.MyAuthenticationProvider;
+import cc.aisc.platform.commons.auth.support.UsernamePasswordAuthenticationProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -30,29 +31,29 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public AuthenticationProvider myAuthenticationProvider() {
-        return new MyAuthenticationProvider(userDetailsService);
+    public AuthenticationProvider usernamePasswordAuthenticationProvider() {
+        return new UsernamePasswordAuthenticationProvider(userDetailsService);
     }
 
 
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/", "/resources/**", "/*/create/**");
-    }
+//    @Override
+//    public void configure(WebSecurity web) throws Exception {
+//        web.ignoring().antMatchers("/", "/resources/**", "/*/create/**");
+//    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
 
         http.authorizeRequests()
-                /*.antMatchers("/", "/resources*//**", "*//*//*create*//**").permitAll()*/
+                .antMatchers("/", "/resources*", "//*create*").permitAll()
                 .antMatchers("/users*").hasAuthority("ADMIN")
                 .anyRequest().fullyAuthenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
                 .failureUrl("/login?error")
-                .usernameParameter("email")
+                .usernameParameter("username")
                 .permitAll()
                 .and()
                 .logout()
@@ -68,7 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder())
-                .and().authenticationProvider(myAuthenticationProvider());
+                .and().authenticationProvider(usernamePasswordAuthenticationProvider());
     }
 
 

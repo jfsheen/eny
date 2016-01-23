@@ -11,8 +11,8 @@ import java.util.Optional;
 /**
  * Created by sjf on 15-11-11.
  */
-public interface CategoryService/* extends BaseService<Category, Long>*/{
-    Category add(Category category);
+public interface CategoryService{
+    Category save(Category category);
     void delete(Category category);
     Category update(Category category);
     Optional<Page<Category>> findAll(int page,int size);

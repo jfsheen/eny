@@ -1,6 +1,6 @@
 package cc.aisc.platform.commons.auth.currentuser;
 
-import cc.aisc.platform.commons.auth.role.RoleEnum;
+import cc.aisc.platform.commons.auth.RoleEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ public class CurrentUserServiceImpl implements CurrentUserService {
     public boolean canAccessUser(CurrentUser currentUser, Long userId) {
         LOGGER.debug("Checking if user={} has access to user={}", currentUser, userId);
         return currentUser != null
-                && (currentUser.getRole() == RoleEnum.ADMIN || currentUser.getId().equals(userId));
+                && (currentUser.hasAuthority("CO_ADMIN") || currentUser.getId().equals(userId));
     }
 
 }
